@@ -527,6 +527,68 @@ resource "azurerm_windows_web_app" "this" {
       update = timeouts.value.update
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      app_settings["ContactAPI:APIKey"],
+      app_settings["APPINSIGHTS_INSTRUMENTATIONKEY"],
+      app_settings["APPINSIGHTS_PROFILERFEATURE_VERSION"],
+      app_settings["APPINSIGHTS_SNAPSHOTFEATURE_VERSION"],
+      app_settings["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+      app_settings["ASPNETCORE_ENVIRONMENT"],
+      app_settings["AZURE_LOG_LEVEL"],
+      app_settings["ApplicationInsightsAgent_EXTENSION_VERSION"],
+      app_settings["AzureBlob:AccountKey"],
+      app_settings["AzureBlob:AccountName"],
+      app_settings["AzureBlob:PrimaryEndpoint"],
+      app_settings["AzureWebJobsDashboard"],
+      app_settings["AzureWebJobsStorage"],
+      app_settings["BlobLease:ContainerName"],
+      app_settings["BlobLease:LeaseDuration"],
+      app_settings["BlobLease:LeaseRetryWaitDuration"],
+      app_settings["ContactAPI:APIKey"],
+      app_settings["ContactAPI:CDC:SQLViewGetContactsForCDCByLastUpdate"],
+      app_settings["ContactAPI:Contacts:Locks:UpdateContactLockName"],
+      app_settings["ContactAPI:Contacts:Locks:UpsertContactsLockName"],
+      app_settings["ContactAPI:Contacts:SQLSPGetContactsMessage"],
+      app_settings["ContactAPI:Contacts:SQLSPGetContactsMessageBulkSizeBytes"],
+      app_settings["ContactAPI:Contacts:SQLSPUpdateContactMessage"],
+      app_settings["ContactAPI:Contacts:SQLSPUpsertContactsMessage"],
+      app_settings["ContactAPI:Contacts:SourceContactTopicName"],
+      app_settings["ContactAPI:EnableAPIKey"],
+      app_settings["ContactAPI:EnablePayloadLogging"],
+      app_settings["ContactAPI:Identifier:Locks:UpsertIdentifierLockName"],
+      app_settings["ContactAPI:Identifier:SQLSPUpsertIdentifierMessage"],
+      app_settings["ContactAPI:Photo:SQLSPPhoto"],
+      app_settings["ContactAPI:Reservations:SQLViewGetReferenceContactsForReservationsByLastUpdate"],
+      app_settings["ContactAPI:Search:DefaultRowsToReturn"],
+      app_settings["ContactAPI:Search:SQLSPAdvancedSearch"],
+      app_settings["ContactAPI:Search:SQLSPBasicSearch"],
+      app_settings["ContactAPI:SourceContacts:Locks:DeleteSourceContactsLockName"],
+      app_settings["ContactAPI:SourceContacts:Locks:MergeSourceContactsLockName"],
+      app_settings["ContactAPI:SourceContacts:SQLSPDeleteSourceContactsMessage"],
+      app_settings["ContactAPI:SourceContacts:SQLSPGetSourceContactMessage"],
+      app_settings["ContactAPI:SourceContacts:SQLSPMergeSourceContactsMessage"],
+      app_settings["ContactAPI:SourceContacts:SourceContactTopicName"],
+      app_settings["Databases:ContactMaster:CommandTimeoutSeconds"],
+      app_settings["Databases:ContactMaster:ConnectionString"],
+      app_settings["DiagnosticServices_EXTENSION_VERSION"],
+      app_settings["InstrumentationEngine_EXTENSION_VERSION"],
+      app_settings["ServiceBus:ConnectionStringListen"],
+      app_settings["ServiceBus:ConnectionStringSend"],
+      app_settings["ServiceBus:LoggingDomain"],
+      app_settings["ServiceBus:LoggingQueueName"],
+      app_settings["ServiceBus:ServiceBusBatchMaxNbrMessages"],
+      app_settings["ServiceBus:ServiceBusBatchMaxSizePercent"],
+      app_settings["SnapshotDebugger_EXTENSION_VERSION"],
+      app_settings["XDT_MicrosoftApplicationInsights_BaseExtensions"],
+      app_settings["XDT_MicrosoftApplicationInsights_Java"],
+      app_settings["XDT_MicrosoftApplicationInsights_Mode"],
+      app_settings["XDT_MicrosoftApplicationInsights_NodeJS"],
+      app_settings["XDT_MicrosoftApplicationInsights_PreemptSdk"]
+      sticky_settings["app_setting_names"]
+    ]
+  }
 }
 
 resource "azurerm_linux_web_app" "this" {

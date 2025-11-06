@@ -52,3 +52,6 @@ examples/*/policy
 sensitive.variables.tf
 *.mptfbackup
 .avm
+
+# Ignore IntelliJ IDEA directory
+**/.idea/*

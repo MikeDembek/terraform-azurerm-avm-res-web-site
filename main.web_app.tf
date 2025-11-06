@@ -585,7 +585,7 @@ resource "azurerm_windows_web_app" "this" {
       app_settings["XDT_MicrosoftApplicationInsights_Java"],
       app_settings["XDT_MicrosoftApplicationInsights_Mode"],
       app_settings["XDT_MicrosoftApplicationInsights_NodeJS"],
-      app_settings["XDT_MicrosoftApplicationInsights_PreemptSdk"]
+      app_settings["XDT_MicrosoftApplicationInsights_PreemptSdk"],
       sticky_settings["app_setting_names"]
     ]
   }
